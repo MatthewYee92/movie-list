@@ -2,14 +2,14 @@ import React from "react";
 import movies from "../mockData";
 
 const RenderData = props => {
+  const { isRendered, checkForRender } = props;
   return (
     <div>
-      <h1>... Render Data Component is rendering</h1>
-
-      <div>
-        {/* Hard code rendering */}
-        Movie:{movies[0].title}
-      </div>
+      <h1>{ checkForRender(isRendered) }</h1>
+      Movies:
+      {movies.map((data, i) => (
+        <li key={i}>{data.title}</li>
+      ))}
     </div>
   );
 };
